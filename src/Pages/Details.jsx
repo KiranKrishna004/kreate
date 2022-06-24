@@ -5,6 +5,7 @@ import { useParams } from "react-router-dom";
 import detailService from "../services/detailService";
 import { useSelector } from "react-redux";
 import CartButton from "../components/CartButton";
+import Loading from "../components/Loading";
 
 const Details = () => {
 	const cart = useSelector(({ cart }) => cart.cart);
@@ -23,11 +24,11 @@ const Details = () => {
 	}, []);
 
 	if (details === undefined) {
-		return <>Loading......</>;
+		return <Loading />;
 	}
 
 	return (
-		<div className='max-w-5xl flex flex-col justify-center items-center mx-auto'>
+		<div className='flex flex-col justify-center items-center sm:max-w-xl xs:max-w-md md:max-w-3xl lg:max-w-7xl max-w-2xl mx-auto'>
 			<img src={details.urls.small} />
 			<p className='whitespace-nowrap text-xl font-medium'>
 				<a href={details.user.portfolio_url} target='_blank'>
