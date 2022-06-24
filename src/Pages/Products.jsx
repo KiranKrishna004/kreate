@@ -2,6 +2,7 @@
 import { useEffect, useState, useRef, useCallback } from "react";
 import detailService from "../services/detailService";
 import { useSelector, useDispatch } from "react-redux";
+import Card from "../components/Card";
 const Products = () => {
 	const [loading, setLoading] = useState(true);
 	const [error, setError] = useState(false);
@@ -47,27 +48,28 @@ const Products = () => {
 				setError(true);
 			});
 	}, [page]);
-	// console.log("products: ", products);
 
 	if (products.length === 0) {
 		return <></>;
 	}
 	return (
 		<>
-			<div>
+			<div className='grid xs:grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 sm:max-w-xl xs:max-w-md md:max-w-3xl lg:max-w-7xl max-w-2xl mx-auto'>
 				{products.map((item, index) => {
 					if (products.length === index + 1) {
 						return (
-							<div className='m-3' key={index.id} ref={lastProduct}>
-								{item.id} {index}
+							<div ref={lastProduct}>
+								<Card product={item} index={index} />
 							</div>
 						);
 					} else {
-						return <div key={item.id}>{item.id}</div>;
+						return <Card product={item} index={index} />;
 					}
 				})}
 			</div>
-			<div>{loading && "Loading....."}</div>
+			<div className='flex absolute overflow-none w-full items-center justify-center'>
+				<div className='w-20 h-20 border-t-4 border-b-4 border-green-900 rounded-full animate-spin'></div>
+			</div>
 			<div>{error && "Error......"}</div>
 		</>
 	);

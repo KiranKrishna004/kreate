@@ -13,7 +13,7 @@ const getDetail = async (id) => {
 };
 
 const getPage = async (page) => {
-	return await axios.get(`${baseUrl}/?page=${page}&per_page=10`, options);
+	return await axios.get(`${baseUrl}/?page=${page}&per_page=5`, options);
 };
 
 export default { getDetail: getDetail, getPage: getPage };

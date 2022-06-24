@@ -18,7 +18,7 @@ const Home = () => {
 	}, []);
 
 	return (
-		<div>
+		<div className='sm:max-w-xl xs:max-w-md md:max-w-3xl lg:max-w-7xl max-w-2xl mx-auto'>
 			<Carousal img={img.slice(0, 5)} />
 			<Carousal img={img.slice(5, 10)} />
 			<Carousal img={img.slice(10, 15)} />

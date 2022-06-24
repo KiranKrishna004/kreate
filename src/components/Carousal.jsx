@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const Carousal = ({ img }) => {
 	return (
-		<div className='flex flex-row'>
+		<div className='flex flex-row justify-center'>
 			{img.map((item, index) => {
 				return (
 					<Link key={item.id} to={`/${item.id}`}>
