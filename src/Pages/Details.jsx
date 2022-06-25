@@ -4,8 +4,9 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import detailService from "../services/detailService";
 import { useSelector } from "react-redux";
-import CartButton from "../components/CartButton";
 import Loading from "../components/Loading";
+import MediumDetails from "../components/MediumDetails";
+import SmallDetails from "../components/SmallDetails";
 
 const Details = () => {
 	const cart = useSelector(({ cart }) => cart.cart);
@@ -28,16 +29,11 @@ const Details = () => {
 	}
 
 	return (
-		<div className='flex flex-col justify-center items-center sm:max-w-xl xs:max-w-md md:max-w-3xl lg:max-w-7xl max-w-2xl mx-auto'>
-			<img src={details.urls.small} />
-			<p className='whitespace-nowrap text-xl font-medium'>
-				<a href={details.user.portfolio_url} target='_blank'>
-					{details.user.first_name} {details.user.last_name}
-				</a>
-			</p>
-			<p>Downloads: {details.downloads}</p>
-			<p>{details.description}</p>
-			<CartButton details={details} id={id} />
+		<div className='h-screen '>
+			<div className='sm:max-w-xl flex items-center justify-center h-5/6 xs:max-w-md md:max-w-3xl lg:max-w-5xl max-w-2xl mx-auto'>
+				<MediumDetails details={details} id={id} />
+				<SmallDetails details={details} id={id} />
+			</div>
 		</div>
 	);
 };

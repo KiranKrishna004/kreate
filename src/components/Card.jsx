@@ -1,10 +1,8 @@
 /** @format */
 
-const Card = ({ product, index }) => {
+const Card = ({ product }) => {
 	return (
-		<div
-			key={index}
-			className=' relative max-w-sm rounded-lg shadow-md bg-gray-800 hover:shadow-2xl'>
+		<div className=' relative max-w-sm rounded-lg shadow-md bg-gray-800 hover:shadow-2xl'>
 			<div className='rounded overflow-hidden shadow-lg'>
 				<div className='flex flex-column'>
 					<img
