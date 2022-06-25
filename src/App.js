@@ -1,12 +1,12 @@
 /** @format */
 
 import "./App.css";
-import Products from "./Pages/Products";
-import Home from "./Pages/Home";
+import Products from "./pages/Products";
+import Home from "./pages/Home";
 import { BrowserRouter as Router, Routes, Route, Link } from "react-router-dom";
-import Cart from "./Pages/Cart";
+import Cart from "./pages/Cart";
 import Navbar from "./components/Navbar";
-import Details from "./Pages/Details";
+import Details from "./pages/Details";
 
 const App = () => {
 	return (

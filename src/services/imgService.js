@@ -1,14 +1,17 @@
 /** @format */
 
 import axios from "axios";
-const baseUrl = `https://api.unsplash.com/photos/?per_page=15`;
+const baseUrl = `https://api.unsplash.com/collections/`;
 
-const getAll = () => {
-	return axios.get(baseUrl, {
-		headers: {
-			Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
-		},
-	});
+const getAll = (id, orientation = "portrait") => {
+	return axios.get(
+		`${baseUrl}/${id}/photos/?orientation=${orientation}&per_page=5`,
+		{
+			headers: {
+				Authorization: `Client-ID ${process.env.REACT_APP_API_KEY}`,
+			},
+		}
+	);
 };
 
 export default { getAll: getAll };
